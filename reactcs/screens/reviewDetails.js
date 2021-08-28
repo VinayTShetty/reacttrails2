@@ -34,11 +34,12 @@ export default function ReviewDetails({navigation}) {
     >
     <View style={styles.viewWrapper}>
     <View style={styles.modalView}>
-    <Rating
-  showRating
-  onFinishRating={this.ratingCompleted}
-  style={{ paddingVertical: 5 }}
-/>
+    <AirbnbRating
+    count={6}
+    reviews={["Normal", "Ok", "Good", "Better", "Better", "Excellent"]}
+    defaultRating={1}
+    size={15}
+  />
         <TextInput placeholder="Author name" 
                    value={authorname} style={styles.textInput} 
                    onChangeText={(value) => setInputValue(value)} />
@@ -160,3 +161,11 @@ textInput: {
     marginBottom: 8,
 },
 });
+
+
+
+
+/**
+ * Star rating link
+ * https://www.npmjs.com/package/react-native-ratings
+ */
