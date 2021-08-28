@@ -10,15 +10,27 @@ const { width } = Dimensions.get("window");
 export default function ReviewDetails({navigation}) {
   const [authorname, setAuthorName] = useState("");
   const [comment, setComment] = useState("");
+  const [rating, setRating] = useState("");
   const toggleModalVisibility = () => {
     setModalVisible(!isModalVisible);
 };
+
+ 
   const [modalOpen, setModalOpen] = useState(false);
   const [reviews, setReviews] = useState([
-    { author: 'Vinay', comment: 'lorem ipsum',rating:'2', key: '1' },
-    { author: 'Vinay 1', comment: 'lorem ipsum',rating:'2', key: '2' },
+    // { author: 'Vinay', comment: 'lorem ipsum',rating:'2', key: '1' },
+    // { author: 'Vinay 1', comment: 'lorem ipsum',rating:'2', key: '2' },
     
   ]);
+
+  // const addElement = (author,comment,rating) => {
+  //   var newArray = [...reviews , {author : author, comment: comment,rating:rating}];
+  //    // This is good
+
+  //     useEffect(() => {
+  //       setReviews(newArray);
+  //     }, [newArray])
+  // }
 
 
   return (
@@ -31,7 +43,7 @@ export default function ReviewDetails({navigation}) {
     <AirbnbRating
     count={6}
     reviews={["Normal", "Ok", "Good", "Better", "Better", "Excellent"]}
-    defaultRating={1}
+    // defaultRating={setRating('1')}
     size={15}
   />
   <Text>      </Text>
@@ -43,7 +55,17 @@ export default function ReviewDetails({navigation}) {
                    onChangeText={(value) => setComment(value)} />
 
       <View style={[{ width: "90%", margin: 10, backgroundColor: "white" ,justifyContent:"space-between",}]}>
-      <Button title="Submit" onPress={() =>setModalOpen(false)} />
+      <Button title="Submit"
+      onPress={
+        () => { 
+          if(modalOpen){
+            var newArray = [...reviews , {author : setAuthorName('Vinay'), comment: setComment('shetty'),rating:setRating('1'),key:'1'}];
+            setReviews(newArray);
+            setModalOpen(false); 
+          }
+          }
+       }
+      />
       <Text>      </Text>
       <Button title="cancel" onPress={() =>setModalOpen(false)} />
       </View>
