@@ -4,6 +4,7 @@ import { globalStyles } from '../styles/global';
 import { AntDesign } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import Card from '../shared/card';
+import { Rating, AirbnbRating } from 'react-native-ratings';
 
 const { width } = Dimensions.get("window");
 export default function ReviewDetails({navigation}) {
@@ -33,6 +34,11 @@ export default function ReviewDetails({navigation}) {
     >
     <View style={styles.viewWrapper}>
     <View style={styles.modalView}>
+    <Rating
+  showRating
+  onFinishRating={this.ratingCompleted}
+  style={{ paddingVertical: 5 }}
+/>
         <TextInput placeholder="Author name" 
                    value={authorname} style={styles.textInput} 
                    onChangeText={(value) => setInputValue(value)} />
