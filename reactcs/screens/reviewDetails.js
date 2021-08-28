@@ -37,7 +37,7 @@ export default function ReviewDetails({navigation}) {
   <Text>      </Text>
         <TextInput placeholder="Author name" 
                    value={authorname} style={styles.textInput} 
-                   onChangeText={(value) => setInputValue(value)} />
+                   onChangeText={(value) => setAuthorName(value)} />
                    <TextInput placeholder="Comment" 
                    value={comment} style={styles.textInput} 
                    onChangeText={(value) => setComment(value)} />
