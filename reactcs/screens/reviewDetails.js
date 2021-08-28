@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Text,Image,FlatList,
   TouchableOpacity,Modal, Button ,Dimensions,TextInput,TouchableWithoutFeedback, Keyboard} from 'react-native';
-import { globalStyles } from '../styles/global';
+import { globalStyles,images } from '../styles/global';
 import { AntDesign } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import Card from '../shared/card';
@@ -61,6 +61,9 @@ export default function ReviewDetails({navigation}) {
         <Card>
           <Text style={globalStyles.titleText}>{ item.title }</Text>
           <Text style={globalStyles.titleText}>{ item.body }</Text>
+          <View style={styles.rating}>
+          <Image source={images.ratings[2]} />
+        </View>
         </Card>
       </TouchableOpacity>
     )} />
@@ -170,6 +173,15 @@ modalClose: {
 },
 modalContent: {
   flex: 1,
+},
+rating: {
+  flexDirection: 'row',
+  justifyContent: 'center',
+  paddingTop: 10,
+  marginTop: 16,
+  borderTopWidth: 1,
+  borderTopColor: '#eee',
+  alignItems: 'center',
 }
 });
 
