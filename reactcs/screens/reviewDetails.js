@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text,Image,FlatList,TouchableOpacity,Modal, Button ,Dimensions,TextInput} from 'react-native';
+import { StyleSheet, View, Text,Image,FlatList,
+  TouchableOpacity,Modal, Button ,Dimensions,TextInput,TouchableWithoutFeedback, Keyboard} from 'react-native';
 import { globalStyles } from '../styles/global';
 import { AntDesign } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
@@ -20,18 +21,27 @@ export default function ReviewDetails({navigation}) {
     // { author: 'Vinay 1', comment: 'lorem ipsum',rating:'2', key: '2' },
     
   ]);
+  const addReview = (review) => {
+    review.key = Math.random().toString();
+    setReviews((currentReviews) => {
+      return [review, ...currentReviews];
+    });
+    setModalOpen(false);
+  };
   return (
     <View style={globalStyles.container}>
     <Modal  visible={modalOpen}>
-     <View style={styles.modalContent}>
-     <MaterialIcons 
-     name='close'
-     size={50} 
-     style={{...styles.modalToggle, ...styles.modalClose}} 
-            onPress={() => setModalOpen(false)} 
-          />
-     <ReviewForm/>
-     </View>
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+    <View style={styles.modalContent}>
+    <MaterialIcons 
+    name='close'
+    size={50} 
+    style={{...styles.modalToggle, ...styles.modalClose}} 
+           onPress={() => setModalOpen(false)} 
+         />
+    <ReviewForm addReview={addReview} />
+    </View>
+    </TouchableWithoutFeedback>
     </Modal>
     <View style={styles.card}>
     <Text style={styles.paragraph}>{navigation.getParam('menu')}</Text>
@@ -49,8 +59,8 @@ export default function ReviewDetails({navigation}) {
     <FlatList data={reviews} renderItem={({ item }) => (
       <TouchableOpacity >
         <Card>
-          <Text style={globalStyles.titleText}>{ item.author }</Text>
-          <Text style={globalStyles.titleText}>{ item.comment }</Text>
+          <Text style={globalStyles.titleText}>{ item.title }</Text>
+          <Text style={globalStyles.titleText}>{ item.body }</Text>
         </Card>
       </TouchableOpacity>
     )} />
