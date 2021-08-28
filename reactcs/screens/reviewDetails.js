@@ -15,15 +15,9 @@ export default function ReviewDetails({navigation}) {
 };
   const [modalOpen, setModalOpen] = useState(false);
   const [reviews, setReviews] = useState([
-    { title: 'Demo, Vinay of Demo Air', rating: 5, body: 'lorem ipsum', key: '1' },
-    { title: 'Gotta Catch Them All (again)', rating: 4, body: 'lorem ipsum', key: '2' },
-    { title: 'Not So "Final" Fantasy', rating: 3, body: 'lorem ipsum', key: '3' },
-    { title: 'Not So "Final" Fantasy', rating: 3, body: 'lorem ipsum', key: '4' },
-    { title: 'Not So "Final" Fantasy', rating: 3, body: 'lorem ipsum', key: '5' },
-    { title: 'Not So "Final" Fantasy', rating: 3, body: 'lorem ipsum', key: '6' },
-    { title: 'Not So "Final" Fantasy', rating: 3, body: 'lorem ipsum', key: '7' },
-    { title: 'Not So "Final" Fantasy', rating: 3, body: 'lorem ipsum', key: '8' },
-    { title: 'Not So "Final" Fantasy', rating: 3, body: 'lorem ipsum', key: '9' },
+    { author: 'Vinay', comment: 'lorem ipsum',rating:'2', key: '1' },
+    { author: 'Vinay 1', comment: 'lorem ipsum',rating:'2', key: '2' },
+    
   ]);
 
 
@@ -71,10 +65,18 @@ export default function ReviewDetails({navigation}) {
     
     <Text style={styles.comments}>Comments</Text>
     <FlatList data={reviews} renderItem={({ item }) => (
-      <TouchableOpacity onPress={() => navigation.navigate('ReviewDetails', item)}>
+      <TouchableOpacity >
         <Card>
-          <Text style={globalStyles.titleText}>{ item.title }</Text>
-          <Text style={globalStyles.titleText}>{ item.body }</Text>
+          <Text style={globalStyles.titleText}>{ item.author }</Text>
+          <Text style={globalStyles.titleText}>{ item.comment }</Text>
+          <View style={styles.ratingstar}>
+          <AirbnbRating
+          count={6}
+          reviews={["Normal", "Ok", "Good", "Better", "Better", "Excellent"]}
+          defaultRating={item.rating}
+          size={15}
+        />
+          </View>
         </Card>
       </TouchableOpacity>
     )} />
@@ -117,6 +119,9 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     padding: 5,
     borderRadius: 10
+  },
+  ratingstar: {
+    
   },
   iconcontainer: {
     flex: 1,
