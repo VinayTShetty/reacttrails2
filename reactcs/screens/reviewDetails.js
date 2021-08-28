@@ -48,7 +48,8 @@ export default function ReviewDetails({navigation}) {
                    onChangeText={(value) => setComment(value)} />
 
         {/** This button is responsible to close the modal */}
-        <Button title="Close" onPress={() =>setModalOpen(false)} />
+        <Button title="Submit" onPress={() =>setModalOpen(false)} />
+        <Button title="cancel" onPress={() =>setModalOpen(false)} />
     </View>
 </View>
     </Modal>
@@ -146,7 +147,7 @@ modalView: {
     elevation: 5,
     transform: [{ translateX: -(width * 0.4) }, 
                 { translateY: -90 }],
-    height: 180,
+    height: 280,
     width: width * 0.8,
     backgroundColor: "#fff",
     borderRadius: 7,
