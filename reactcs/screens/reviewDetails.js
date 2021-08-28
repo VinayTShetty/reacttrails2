@@ -5,6 +5,8 @@ import { AntDesign } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import Card from '../shared/card';
 import { Rating, AirbnbRating } from 'react-native-ratings';
+import ReviewForm from './reviewForm';
+
 
 const { width } = Dimensions.get("window");
 export default function ReviewDetails({navigation}) {
@@ -21,7 +23,10 @@ export default function ReviewDetails({navigation}) {
   return (
     <View style={globalStyles.container}>
     <Modal  visible={modalOpen}>
-    <Text>Hellow </Text>
+     <View style={styles.modalContent}>
+     <ReviewForm/>
+     <Button color='maroon' title="Cancel" onPress={()=>{setModalOpen(false)}} /> 
+     </View>
     </Modal>
     <View style={styles.card}>
     <Text style={styles.paragraph}>{navigation.getParam('menu')}</Text>

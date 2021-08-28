@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, FlatList,Image }from 'react-native';
 import { globalStyles } from '../styles/global';
 
+
 export default function Home(props) {
 
 const pressHandler=()=>{
