@@ -40,6 +40,7 @@ export default function ReviewDetails({navigation}) {
     defaultRating={1}
     size={15}
   />
+  <Text>      </Text>
         <TextInput placeholder="Author name" 
                    value={authorname} style={styles.textInput} 
                    onChangeText={(value) => setInputValue(value)} />
@@ -47,9 +48,12 @@ export default function ReviewDetails({navigation}) {
                    value={comment} style={styles.textInput} 
                    onChangeText={(value) => setComment(value)} />
 
-        {/** This button is responsible to close the modal */}
-        <Button title="Submit" onPress={() =>setModalOpen(false)} />
-        <Button title="cancel" onPress={() =>setModalOpen(false)} />
+      <View style={[{ width: "90%", margin: 10, backgroundColor: "white" ,justifyContent:"space-between",}]}>
+      <Button title="Submit" onPress={() =>setModalOpen(false)} />
+      <Text>      </Text>
+      <Button title="cancel" onPress={() =>setModalOpen(false)} />
+      </View>
+       
     </View>
 </View>
     </Modal>
@@ -142,12 +146,12 @@ modalView: {
     alignItems: "center",
     justifyContent: "center",
     position: "absolute",
-    top: "50%",
+    top: "30%",
     left: "50%",
     elevation: 5,
     transform: [{ translateX: -(width * 0.4) }, 
                 { translateY: -90 }],
-    height: 280,
+    height: 350,
     width: width * 0.8,
     backgroundColor: "#fff",
     borderRadius: 7,
