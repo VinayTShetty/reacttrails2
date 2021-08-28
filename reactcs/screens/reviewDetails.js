@@ -6,7 +6,7 @@ import { FontAwesome } from '@expo/vector-icons';
 import Card from '../shared/card';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import ReviewForm from './reviewForm';
-
+import { MaterialIcons } from '@expo/vector-icons';
 
 const { width } = Dimensions.get("window");
 export default function ReviewDetails({navigation}) {
@@ -24,8 +24,13 @@ export default function ReviewDetails({navigation}) {
     <View style={globalStyles.container}>
     <Modal  visible={modalOpen}>
      <View style={styles.modalContent}>
+     <MaterialIcons 
+     name='close'
+     size={50} 
+     style={{...styles.modalToggle, ...styles.modalClose}} 
+            onPress={() => setModalOpen(false)} 
+          />
      <ReviewForm/>
-     <Button color='maroon' title="Cancel" onPress={()=>{setModalOpen(false)}} /> 
      </View>
     </Modal>
     <View style={styles.card}>
@@ -139,6 +144,23 @@ textInput: {
     borderWidth: 1,
     marginBottom: 8,
 },
+modalToggle: {
+  justifyContent: 'center',
+  alignItems: 'center',
+  marginBottom: 10,
+  borderWidth: 1,
+  borderColor: '#f2f2f2',
+  padding: 10,
+  borderRadius: 10,
+  alignSelf: 'center',
+},
+modalClose: {
+  marginTop: 10,
+  marginBottom: 20,
+},
+modalContent: {
+  flex: 1,
+}
 });
 
 
