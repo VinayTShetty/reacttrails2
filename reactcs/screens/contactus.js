@@ -5,7 +5,7 @@ import { globalStyles } from '../styles/global';
 export default function Contact() {
   return (
     <View style={globalStyles.container}>
-      <Text>Contact Screen</Text>
+      <Text>Contact Screen dsfdsfdsfsd</Text>
     </View>
   );
 }
