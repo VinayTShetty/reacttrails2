@@ -11,7 +11,17 @@ import {
   ScrollView
 } from 'react-native';
 
+
+const IMAGES = {
+  image1: require('../assets/pizza.png'),
+  image2: require('../assets/meals.png'),
+  image3: require('../assets/potatofries.png'),
+  image4: require('../assets/sandwich.png'),
+  image5: require('../assets/chicken.png'),
+};
 export default class Users extends Component {
+
+  
 
   constructor(props) {
     super(props);
@@ -19,7 +29,7 @@ export default class Users extends Component {
       modalVisible:false,
       userSelected:[],
       data: [
-        {id:1,  name: "Mark Doe",   position:"CEO",               image:"https://bootdey.com/img/Content/avatar/avatar7.png", about:"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo."},
+        {id:1,  name: "Mark Doe",   position:"CEO",               image:IMAGES.image1, about:"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo."},
         {id:2,  name: "John Doe",   position:"CTO",               image:"https://bootdey.com/img/Content/avatar/avatar1.png", about:"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo."},
         {id:3,  name: "Clark Man",  position:"Creative designer", image:"https://bootdey.com/img/Content/avatar/avatar6.png", about:"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo."} ,
         {id:4,  name: "Jaden Boor", position:"Front-end dev",     image:"https://bootdey.com/img/Content/avatar/avatar5.png", about:"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo."} ,
@@ -35,7 +45,7 @@ export default class Users extends Component {
 
   clickEventListener = (item) => {
     this.setState({userSelected: item}, () =>{
-      this.setModalVisible(true);
+     this.setModalVisible(true);
     });
   }
 
@@ -57,7 +67,7 @@ export default class Users extends Component {
           renderItem={({item}) => {
           return (
             <TouchableOpacity style={styles.card} onPress={() => {this.clickEventListener(item)}}>
-              <Image style={styles.image} source={{uri: item.image}}/>
+              <Image style={styles.image}  source={item.image}/>
               <View style={styles.cardContent}>
                 <Text style={styles.name}>{item.name}</Text>
                 <Text style={styles.position}>{item.position}</Text>
