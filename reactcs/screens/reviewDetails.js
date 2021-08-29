@@ -10,13 +10,14 @@ import ReviewForm from './reviewForm';
 import { MaterialIcons } from '@expo/vector-icons';
 
 const { width } = Dimensions.get("window");
-const rndInt = Math.floor(Math.random() * 6) + 1
+const rndInt = Math.floor(Math.random() * 5) + 1
+
+function randomIntFromInterval(min, max) { // min and max included 
+  return Math.floor(Math.random() * (max - min + 1) + min)
+}
+
 export default function ReviewDetails({navigation}) {
   const [modalOpen, setModalOpen] = useState(false);
-
-
-
-
   const [reviews, setReviews] = useState([
     // { author: 'Vinay', comment: 'lorem ipsum',rating:'2', key: '1' },
     // { author: 'Vinay 1', comment: 'lorem ipsum',rating:'2', key: '2' },
@@ -30,6 +31,7 @@ export default function ReviewDetails({navigation}) {
     setModalOpen(false);
   };
   return (
+    
     <View style={globalStyles.container}>
     <Modal  visible={modalOpen}>
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -48,7 +50,12 @@ export default function ReviewDetails({navigation}) {
     <Text style={styles.paragraph}>{navigation.getParam('menu')}</Text>
     <Image  style={styles.userImage}source={navigation.getParam('image')}/>
     <Text style={styles.description}>{navigation.getParam('body')}</Text>
-    <TouchableOpacity onPress={() =>setModalOpen(true)}>
+    <TouchableOpacity onPress={
+      () =>{setModalOpen(true);
+    
+      }
+    
+    }>
     <View style={styles.iconcontainer} >
     <AntDesign name="heart" size={24} color="red" />
     <FontAwesome name="pencil" size={24} color="blue" />
@@ -60,17 +67,18 @@ export default function ReviewDetails({navigation}) {
     <FlatList data={reviews} renderItem={({ item }) => (
       <TouchableOpacity >
         <Card>
-          <Text style={globalStyles.titleText}>{ item.title }</Text>
+          <Text style={globalStyles.titleText}>{ "Author:-"+item.title }</Text>
         
           <View style={styles.rating}>
-          <Image source={images.ratings[""+rndInt]}
+          
+          <Image source={images.ratings[randomIntFromInterval(1,5)]}
           style={{
             aspectRatio: 25, 
             resizeMode: 'contain',
             }}
           />
         </View>
-        <Text style={globalStyles.titleText}>{ item.body }</Text>
+        <Text style={globalStyles.titleText}>{ "Comment:- "+item.body }</Text>
         </Card>
       </TouchableOpacity>
     )} />

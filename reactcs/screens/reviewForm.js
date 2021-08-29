@@ -20,8 +20,8 @@ export default function ReviewForm({ addReview }) {
         {props => (
           <View>
               <AirbnbRating
-                count={11}
-                 reviews={["Terrible", "Bad", "Meh", "OK", "Good", "Hmm...", "Very Good", "Wow", "Amazing", "Unbelievable", "Jesus"]}
+                count={5}
+                 reviews={["1/5","2/5","3/5","4/5","5/5",]}
                 defaultRating={0}
                 onFinishRating={parseInt('rating')}
                 size={20}
@@ -29,25 +29,16 @@ export default function ReviewForm({ addReview }) {
                 />
             <TextInput
               style={globalStyles.input}
-              placeholder='Review title'
+              placeholder='Author Name'
               onChangeText={props.handleChange('title')}
               value={props.values.title}
             />
-
             <TextInput
               style={globalStyles.input}
               multiline
-              placeholder='Review details'
+              placeholder='Commnet'
               onChangeText={props.handleChange('body')}
               value={props.values.body}
-            />
-
-            <TextInput 
-              style={globalStyles.input}
-              placeholder='Rating (1 - 5)'
-              onChangeText={props.handleChange('rating')}
-              value={props.values.rating}
-              keyboardType='numeric'
             />
             <Button color='maroon' title="Submit" onPress={props.handleSubmit} /> 
           </View>
