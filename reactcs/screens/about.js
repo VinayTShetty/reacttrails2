@@ -136,8 +136,8 @@ const styles = StyleSheet.create({
   name:{
     fontSize:18,
     flex:1,
-    alignSelf:'center',
-    color:"red",
+    alignSelf:'flex-start',
+    color:"black",
     fontWeight:'bold'
   },
   position:{
@@ -154,11 +154,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius:30,
-    backgroundColor: "#000000",
+    backgroundColor: "#696969",
   },
   followButtonText:{
     color: "#FFFFFF",
     fontSize:10,
+    fontWeight:'bold'
   },
   icon:{
     height: 20,
