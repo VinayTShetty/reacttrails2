@@ -64,10 +64,8 @@ export default function ReviewDetails({navigation}) {
           <View style={styles.rating}>
           <Image source={images.ratings[5]}
           style={{
- aspectRatio: 25, 
+            aspectRatio: 25, 
             resizeMode: 'contain',
-            marginTop:'50'
-        
             }}
           />
         </View>
