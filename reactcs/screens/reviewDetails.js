@@ -62,7 +62,14 @@ export default function ReviewDetails({navigation}) {
           <Text style={globalStyles.titleText}>{ item.title }</Text>
           <Text style={globalStyles.titleText}>{ item.body }</Text>
           <View style={styles.rating}>
-          <Image source={images.ratings[2]} />
+          <Image source={images.ratings[5]}
+          style={{
+ aspectRatio: 25, 
+            resizeMode: 'contain',
+            marginTop:'50'
+        
+            }}
+          />
         </View>
         </Card>
       </TouchableOpacity>
@@ -182,6 +189,7 @@ rating: {
   borderTopWidth: 1,
   borderTopColor: '#eee',
   alignItems: 'center',
+  
 }
 });
 
