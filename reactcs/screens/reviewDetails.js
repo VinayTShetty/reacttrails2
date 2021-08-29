@@ -60,15 +60,16 @@ export default function ReviewDetails({navigation}) {
       <TouchableOpacity >
         <Card>
           <Text style={globalStyles.titleText}>{ item.title }</Text>
-          <Text style={globalStyles.titleText}>{ item.body }</Text>
+        
           <View style={styles.rating}>
-          <Image source={images.ratings[5]}
+          <Image source={images.ratings[item.rating]}
           style={{
             aspectRatio: 25, 
             resizeMode: 'contain',
             }}
           />
         </View>
+        <Text style={globalStyles.titleText}>{ item.body }</Text>
         </Card>
       </TouchableOpacity>
     )} />
