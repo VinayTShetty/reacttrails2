@@ -10,6 +10,7 @@ import ReviewForm from './reviewForm';
 import { MaterialIcons } from '@expo/vector-icons';
 
 const { width } = Dimensions.get("window");
+const rndInt = Math.floor(Math.random() * 6) + 1
 export default function ReviewDetails({navigation}) {
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -62,7 +63,7 @@ export default function ReviewDetails({navigation}) {
           <Text style={globalStyles.titleText}>{ item.title }</Text>
         
           <View style={styles.rating}>
-          <Image source={images.ratings[item.rating]}
+          <Image source={images.ratings[""+rndInt]}
           style={{
             aspectRatio: 25, 
             resizeMode: 'contain',
