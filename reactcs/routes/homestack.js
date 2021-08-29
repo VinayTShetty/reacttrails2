@@ -9,14 +9,14 @@ const screens = {
     screen: Home,
     navigationOptions: ({ navigation }) => {
       return {
-        headerTitle: () => <Header title='Menu Toolbar' navigation={navigation} />
+        headerTitle: () => <Header title='Home' navigation={navigation} />
       }
     },
   },
   ReviewDetails: {
     screen: ReviewDetails,
     navigationOptions: {
-      title: 'Menu  Details ToolBar',
+      title: 'Dish Detials',
     }
   },
 };

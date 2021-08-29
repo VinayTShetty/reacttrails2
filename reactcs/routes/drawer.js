@@ -4,6 +4,7 @@ import { createAppContainer } from 'react-navigation';
 // stacks
 import HomeStack from '../routes/homestack';
 import AboutStack from '../routes/aboutStack';
+import ContactStack from '../routes/contactStack';
 
 // drawer navigation options
 const RootDrawerNavigator = createDrawerNavigator({
@@ -12,6 +13,9 @@ const RootDrawerNavigator = createDrawerNavigator({
   },
   About: {
     screen: AboutStack,
+  },
+  Contact: {
+    screen: ContactStack,
   },
 });
 
