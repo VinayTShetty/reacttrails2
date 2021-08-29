@@ -71,7 +71,7 @@ export default function ReviewDetails({navigation}) {
         
           <View style={styles.rating}>
           
-          <Image source={images.ratings[randomIntFromInterval(1,5)]}
+          <Image source={images.ratings[4]}   //  
           style={{
             aspectRatio: 25, 
             resizeMode: 'contain',
