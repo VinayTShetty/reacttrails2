@@ -56,6 +56,7 @@ return (
               }>
                 <Text style={styles.followButtonText}>{item.menu}</Text>  
               </TouchableOpacity>
+              <Text> </Text>
               <Text style={styles.position}>{item.body}</Text>
               
             </View>
@@ -153,7 +154,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius:30,
-    backgroundColor: "#00BFFF",
+    backgroundColor: "#000000",
   },
   followButtonText:{
     color: "#FFFFFF",
