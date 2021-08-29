@@ -22,7 +22,7 @@ const [mealsmenu, setReviews] = useState([
   { title: 'CEO', menu: "Samuel", body: 'Take a dough kneading plate and add all-purpose flour to it. Next, add salt and baking powder in it and sieve the flour once. Then, make a well in the centre and add 1 teaspoon of oil to it. On the other hand, take a little warm water and mix the yeast in it along with 1 teaspoon of sugar. Mix well and keep aside for 10-15 minutes. The yeast will rise in the meantime. Once the yeast has risen, add it to the flour knead the dough nicely using some water. Keep this dough aside for 4-6 hours. Then knead the dough once again. Now, the pizza dough is ready ',image:IMAGES.image1 ,key: '1' },
   { title: 'Vice President', menu: "Geetha", body: 'Wash, peel and chop your vegetables and store in an air tight container in the fridge. By keeping the vegetables in the fridge you minimize nutrient losses. You can also chop meat and keep in a sealed container in the fridge (within its use-by dates). Spending a few minutes doing this the night before makes cooking the next day less stressful.For healthy snacks, wash and portion fruit into containers. These can be grabbed to snack on throughout the day', image:IMAGES.image2 ,key: '2' },
   { title: 'Manager', menu: "Francis", body: 'First, grab 1 extra-large potato, 2 large potatoes or 3 medium potatoes equalling about 315 grams. Rinse well in water and then peel the potato. Now slice the potato in slices having 1 cm thickness.Cut the potatoes in sticks having 1 cm width. Heat oil in a wok or pan over medium or medium-low heat, depending on the heaviness of your pan.',image:IMAGES.image3 , key: '3' },
-  { title: 'Chief Technical Manager', menu: "Anamika Sengupta", body: 'Step 1 Slice the veggies Step 2 Make green chutney Step 3 Assemble the sandwich Step 4 Grill the sandwich and serve hot Once you are done with placing the sandwich, spread the grated cheese over it. Grill the sandwich for around 2-3 minutes. Once done, cut into pieces and serve hot. Do try this recipe, rate it and let us know in the comments how it turned out to be.', image:IMAGES.image4 ,key: '4' },
+  { title: 'Chief Technical Manager', menu: "Anamika", body: 'Step 1 Slice the veggies Step 2 Make green chutney Step 3 Assemble the sandwich Step 4 Grill the sandwich and serve hot Once you are done with placing the sandwich, spread the grated cheese over it. Grill the sandwich for around 2-3 minutes. Once done, cut into pieces and serve hot. Do try this recipe, rate it and let us know in the comments how it turned out to be.', image:IMAGES.image4 ,key: '4' },
   { title: 'Business Development', menu: "Rania Lampou", body: 'chicken recipe, perfect for occasions like dinner party with friends or a get together with family on festivals like Eid or Diwali. It is the most basic and simple chicken recipe to try at home, cooked in less than an hour! Chicken masala can be paired with some steamed rice or any Indian bread of your choice like roti, naan or hot and piping parathas.', image:IMAGES.image5 ,key: '5' },
   { title: 'Company Secretary', menu: "Sam", body: 'chicken recipe, perfect for occasions like dinner party with friends or a get together with family on festivals like Eid or Diwali. It is the most basic and simple chicken recipe to try at home, cooked in less than an hour! Chicken masala can be paired with some steamed rice or any Indian bread of your choice like roti, naan or hot and piping parathas.', image:IMAGES.image5 ,key: '5' },
   { title: 'President', menu: "DC", body: 'chicken recipe, perfect for occasions like dinner party with friends or a get together with family on festivals like Eid or Diwali. It is the most basic and simple chicken recipe to try at home, cooked in less than an hour! Chicken masala can be paired with some steamed rice or any Indian bread of your choice like roti, naan or hot and piping parathas.', image:IMAGES.image5 ,key: '5' },
@@ -48,12 +48,13 @@ return (
           <View style={styles.cardFooter}>
             <View style={{alignItems:"center", justifyContent:"center"}}>
               <Text style={styles.name}>{item.title}</Text>
-              <Text style={styles.position}>{item.body}</Text>
               <TouchableOpacity style={styles.followButton} onPress={()=> 
                 props.navigation.navigate('ReviewDetails',item)
               }>
                 <Text style={styles.followButtonText}>{item.menu}</Text>  
               </TouchableOpacity>
+              <Text style={styles.position}>{item.body}</Text>
+              
             </View>
           </View>
         </TouchableOpacity>
