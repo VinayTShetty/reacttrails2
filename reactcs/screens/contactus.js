@@ -228,3 +228,7 @@ const styles = StyleSheet.create({
     justifyContent:'center',
   }
 });
+
+
+
+//Check code.
